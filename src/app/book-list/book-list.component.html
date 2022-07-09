@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" style="color:white;">Books Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Search !!!!!!!!!! -->
+<form class="form-inline my-2 my-lg-0">
+  <input type="search" (ngModelChange)="searchBooks(key.value)" #key="ngModel" ngModel
+         name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Books by..." required>
+</form>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Publishing House</th>
+      <th>Collection</th>
+      <th>Available</th>
+      <th>Language</th>
+      <th>Number of pages</th>
+      <th>Year of launch</th>
+      <th>Category</th>
+      <th>Book code</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let templateBooks of books" >
+      <td>  {{templateBooks.title}}</td>
+      <td>  {{templateBooks.author}}</td>
+      <td>  {{templateBooks.publishingHouse}}</td>
+      <td>  {{templateBooks.collection}}</td>
+      <td>  {{templateBooks.available}}</td>
+      <td>  {{templateBooks.language}}</td>
+      <td>  {{templateBooks.numberOfPages}}</td>
+      <td>  {{templateBooks.yearOfLaunch}}</td>
+      <td>  {{templateBooks.category}}</td>
+      <td>  {{templateBooks.bookCode}}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
