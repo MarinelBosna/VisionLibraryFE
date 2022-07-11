@@ -18,4 +18,14 @@ export class RegisterService {
         return this.httpClient.post<any>(`${this.baseUrl}`, user, responseOptions);
   }
 
+  loginUser(user: User): Observable<any>{
+    console.log(user);
+    const responseOptions : Object = {
+      responseType: "text"
+    }
+    return this.httpClient.post<any>(`${this.baseUrl}`, user, responseOptions);
+  }
+
+
+
 }

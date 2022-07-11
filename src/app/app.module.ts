@@ -9,23 +9,23 @@ import { HttpClientModule } from "@angular/common/http";
 import { BookListComponent } from './book-list/book-list.component';
 import {BookService} from "./services/book.service";
 import { Routes, RouterModule} from "@angular/router";
-
-
-const routes: Routes = [
-  {path: 'books', component: BookListComponent},
-  {path: 'books/findByTitle', component: BookListComponent},
-  {path: '**', redirectTo: '/books', pathMatch: 'full'}
-]
-
+import { CreateBookComponent } from './create-book/create-book.component';
+import { SearchBookComponent } from './search-book/search-book.component';
+import { LoginBookComponent } from './login-book/login-book.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
+    CreateBookComponent,
     AppComponent,
     RegisterUserComponent,
-    BookListComponent
+    BookListComponent,
+    CreateBookComponent,
+    SearchBookComponent,
+    LoginBookComponent,
+    EditBookComponent
   ],
   imports: [
-    RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule,
     FormsModule,

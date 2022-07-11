@@ -1,7 +1,16 @@
-
-<app-register-user></app-register-user>
+<!--<app-register-user></app-register-user> -->
 <div class="container">
-  <h1 class="mt-3 mb-3">Books</h1>
-  <app-book-list></app-book-list>
+  <nav>
+      <ul>
+        <a routerLink="/getAllBooks" routerLinkActive="active" class="nav-link">Home</a>
+        <li class = "nav-item">
+          <a routerLink="/register" routerLinkActive="active" class="nav-link">Register</a>
+        </li>
+        <li class = "nav-item">
+          <a routerLink="/login" routerLinkActive="active" class="nav-link">Login</a>
+        </li>
+      </ul>
+  </nav>
+  <router-outlet></router-outlet>
 </div>
 

@@ -19,6 +19,11 @@ export class BookListComponent implements OnInit {
     this.getBooks();
   }
 
+  onSubmit(){
+    console.log(this.book);
+    this.saveBook();
+  }
+
   saveBook(){
     this.bookService.addBook(this.book).subscribe( data =>{
         console.log(data);
@@ -26,6 +31,7 @@ export class BookListComponent implements OnInit {
       },
       error => console.log(error));
   }
+
 
   getBooks() {
     this.bookService.getBooks().subscribe(
@@ -35,27 +41,7 @@ export class BookListComponent implements OnInit {
     )
   }
 
-  public searchBooks(key: string): void {
-    console.log(key);
-    const results: Book[] = [];
-    for (const employee of this.books) {
-      if (employee.title.toLowerCase().indexOf(key.toLowerCase()) !== -1
-        || employee.author.toLowerCase().indexOf(key.toLowerCase()) !== -1
-        || employee.category.toLowerCase().indexOf(key.toLowerCase()) !== -1
-        || employee.language.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
-        results.push(employee);
-      }
-    }
-    this.books = results;
-    if (results.length === 0 || !key) {
-      this.getBooks();
-    }
-  }
 
-  onSubmit(){
-    console.log(this.book);
-    this.saveBook();
-  }
 
 
 }
