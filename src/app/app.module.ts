@@ -8,11 +8,10 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { BookListComponent } from './book-list/book-list.component';
 import {BookService} from "./services/book.service";
-import { Routes, RouterModule} from "@angular/router";
 import { CreateBookComponent } from './create-book/create-book.component';
 import { SearchBookComponent } from './search-book/search-book.component';
 import { LoginBookComponent } from './login-book/login-book.component';
-import { EditBookComponent } from './edit-book/edit-book.component';
+
 
 @NgModule({
   declarations: [
@@ -20,16 +19,16 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     AppComponent,
     RegisterUserComponent,
     BookListComponent,
-    CreateBookComponent,
     SearchBookComponent,
     LoginBookComponent,
-    EditBookComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [BookService],
   bootstrap: [AppComponent]

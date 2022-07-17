@@ -4,7 +4,6 @@ import {CreateBookComponent} from "./create-book/create-book.component";
 import {LoginBookComponent} from "./login-book/login-book.component";
 import {RegisterUserComponent} from "./register-user/register-user.component";
 import {SearchBookComponent} from "./search-book/search-book.component";
-import {EditBookComponent} from "./edit-book/edit-book.component";
 
 const routes: Routes = [
   {path: 'books', component: CreateBookComponent},
@@ -12,7 +11,6 @@ const routes: Routes = [
   {path: 'register', component: RegisterUserComponent},
   {path: 'getAllBooks', component: SearchBookComponent},
   {path: 'addBook', component: CreateBookComponent},
-  {path: 'updateBook', component: EditBookComponent}
 ];
 
 @NgModule({

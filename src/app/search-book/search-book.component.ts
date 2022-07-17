@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Book} from "../common/book";
 import {BookService} from "../services/book.service";
 import { Router } from '@angular/router';
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-search-book',
@@ -45,8 +46,17 @@ export class SearchBookComponent implements OnInit {
     }
   }
 
-  updateBook(id: any){
-    this.router.navigate(['updateBook', id]).then(r => console);
+
+  deleteBook(id: number){
+    this.bookService.deleteEmployee(id).subscribe( data => {
+      console.log(data);
+      this.getBooks();
+    })
+  }
+
+  updateBook(book: Book){
+    // @ts-ignore
+    this.router.navigate(['update'], book);
   }
 
 }

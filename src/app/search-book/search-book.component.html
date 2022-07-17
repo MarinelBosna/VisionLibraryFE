@@ -32,7 +32,8 @@
     <td>  {{templateBooks.category}}</td>
     <td>  {{templateBooks.bookCode}}</td>
     <td>
-      <button (click) = "updateBook(book.id)" class = "btn btn-info"> Update</button>
+      <button (click) = "updateBook(book)" class = "btn btn-info"> Update</button>
+      <button (click) = "deleteBook(book.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
     </td>
   </tr>
   </tbody>

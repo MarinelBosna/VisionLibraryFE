@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../user";
 import {RegisterService} from "../register.service";
+import {Login} from "../login";
 
 @Component({
   selector: 'app-login-book',
@@ -9,7 +10,7 @@ import {RegisterService} from "../register.service";
 })
 export class LoginBookComponent implements OnInit {
 
-  user:User = new User();
+  login:Login = new Login();
 
   constructor(private registerService: RegisterService) { }
 
@@ -17,8 +18,8 @@ export class LoginBookComponent implements OnInit {
   }
 
   loginRegister(){
-    console.log(this.user);
-    this.registerService.loginUser(this.user).subscribe(data=>{
+    console.log(this.login);
+    this.registerService.loginUser(this.login).subscribe(data=>{
       alert("Successfully User is login?" + data)
     });
 
