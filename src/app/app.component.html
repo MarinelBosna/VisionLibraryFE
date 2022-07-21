@@ -1,19 +1,22 @@
 
-/.Navbar
-<app-register-user></app-register-user>
+<!--<app-register-user></app-register-user>-->
 <div class="container">
-  <a routerLink="/getAllBooks" routerLinkActive="active" class="nav-link">Home</a>
-  <h1 class="mt-3 mb-3">Books</h1>
-  <nav>
-      <ul>
-        <li class = "nav-item">
-          <a routerLink="/register" routerLinkActive="active" class="nav-link">Register</a>
-        </li>
-        <li class = "nav-item">
-          <a routerLink="/login" routerLinkActive="active" class="nav-link">Login</a>
-        </li>
-      </ul>
-  </nav>
+  <a *ngIf="!commonUtil.getLoginUser()" routerLink="/home" routerLinkActive="active" class="btn btn-outline">Home</a>
+  <a *ngIf="commonUtil.getLoginUser()" routerLink="/getAllBooks" routerLinkActive="active" class="nav-link">Home</a>
+<!--  <div class="text-right">-->
+    <a *ngIf="!commonUtil.getLoginUser()" routerLink="/register" routerLinkActive="active" class="btn btn-outline-secondary">Register</a>
+<!--  </div>-->
+  <a *ngIf="!commonUtil.getLoginUser()" routerLink="/login" routerLinkActive="active" class="btn btn-outline-secondary">Login</a>
+  <a *ngIf="commonUtil.getLoginUser()" routerLink="/addBook" routerLinkActive="active" class="btn btn-outline-secondary">Add Book in System</a>
+<!--  <nav>-->
+<!--      <ul>-->
+<!--        <li class = "nav-item">-->
+<!--          <a routerLink="/register" routerLinkActive="active" class="nav-link">Register</a>-->
+<!--        </li>-->
+<!--        <li class = "nav-item">-->
+<!--          <a routerLink="/login" routerLinkActive="active" class="nav-link">Login</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--  </nav>-->
   <router-outlet></router-outlet>
 </div>
-

@@ -20,17 +20,16 @@ export class BookService {
     return this.httpClient.post<Book>(`${this.baseUrl}/add`, book);
   }
 
-  getEmployeeById(id: number): Observable<Book>{
-    return this.httpClient.get<Book>(`${this.baseUrl}/${id}`);
+  getBookById(id: number): Observable<Book>{
+    return this.httpClient.get<Book>(`${this.baseUrl}/find/${id}`);
   }
 
-  updateEmployee(id: number, employee: Book): Observable<Object>{
-    return this.httpClient.put(`${this.baseUrl}/${id}`, employee);
+  updateBook(id: number, book: Book): Observable<Object>{
+    return this.httpClient.put(`${this.baseUrl}/update`, book);
   }
 
-  deleteEmployee(id: number): Observable<Object>{
-    return this.httpClient.delete(`${this.baseUrl}/${id}`);
+  deleteBook(id: number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseUrl}/delete/${id}`);
   }
-
 
 }

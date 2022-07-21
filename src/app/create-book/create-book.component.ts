@@ -15,10 +15,15 @@ export class CreateBookComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    this.book.selectedLanguage = this.book.language[0];
+    console.log(this.book.selectedLanguage);
   }
 
   saveBook(){
-    this.bookService.addBook(this.book).subscribe( data =>{
+    let book: any = {...this.book};
+    book.language = book.selectedLanguage.label;
+    delete book.selectedLanguage;
+    this.bookService.addBook(book).subscribe( data =>{
         console.log(data);
         this.goToBookList();
       },
@@ -26,7 +31,7 @@ export class CreateBookComponent implements OnInit {
   }
 
   goToBookList(){
-    this.router.navigate(['/books']);
+    this.router.navigate(['/getAllBooks']);
   }
 
   onSubmit(){

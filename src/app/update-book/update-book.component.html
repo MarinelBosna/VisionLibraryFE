@@ -1,0 +1,72 @@
+<div class="col-md-6 offset-md-3">
+  <h3> Update Book </h3>
+  <form (ngSubmit) = "onSubmit()">
+
+    <div class="form-group">
+      <label> Title </label>
+      <input type="text" class ="form-control" id = "firstName"
+             [(ngModel)] = "book.title" name = "firstName">
+    </div>
+
+    <div class="form-group">
+      <label> Author</label>
+      <input type="text" class ="form-control" id = "lastName"
+             [(ngModel)] = "book.author" name = "lastName">
+    </div>
+    <div class="form-group">
+      <label> Publishing house</label>
+      <input type="text" class ="form-control" id = "publishingHouse"
+             [(ngModel)] = "book.publishingHouse" name = "lastName">
+    </div>
+    <div class="form-group">
+      <label> Collection</label>
+      <input type="text" class ="form-control" id = "collection"
+             [(ngModel)] = "book.collection" name = "lastName">
+    </div>
+    <div class="form-group">
+      <label> Available</label>
+      <input ngbButton type="radio" [value]="true" class ="form-control" id = "available"
+             [(ngModel)] = "book.available" name = "lastName">
+
+
+      <!--      <label ngbButtonLabel class="radio-inline">-->
+      <!--        <input ngbButton type="radio" [value]="true"> true-->
+      <!--        <input ngbButton type="radio" [value]="false"> false-->
+      <!--      </label>-->
+
+      <!--      <label ngbButtonLabel class="radio-inline">-->
+      <!--        <input ngbButton type="radio" [value]="false"> false-->
+      <!--      </label>-->
+    </div>
+    <div class="form-group">
+      <label> Language </label>
+      <input type="text" class ="form-control" id = "language"
+             [(ngModel)] = "book.language" name = "lastName">
+    </div>
+    <div class="form-group">
+      <label> Number of pages</label>
+      <input type="text" class ="form-control" id = "numberOfPages"
+             [(ngModel)] = "book.numberOfPages" name = "lastName">
+    </div>
+    <div class="form-group">
+      <label> Year of Launch</label>
+      <input type="text" class ="form-control" id = "yearOfLaunch"
+             [(ngModel)] = "book.yearOfLaunch" name = "lastName">
+    </div>
+    <div class="form-group">
+      <label> Category</label>
+      <input type="text" class ="form-control" id = "category"
+             [(ngModel)] = "book.category" name = "lastName">
+    </div>
+    <div class="form-group">
+      <label> Email Id</label>
+      <input type="text" class ="form-control" id = "emailId"
+             [(ngModel)] = "book.bookCode" name = "emailId">
+    </div>
+
+    <button class = "btn btn-success" type ="submit">Submit </button>
+
+    <button type="reset" value="Reset">Reset</button>
+
+  </form>
+</div>

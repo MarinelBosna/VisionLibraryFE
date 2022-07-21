@@ -36,7 +36,7 @@ export class SearchBookComponent implements OnInit {
       if (employee.title.toLowerCase().indexOf(key.toLowerCase()) !== -1
         || employee.author.toLowerCase().indexOf(key.toLowerCase()) !== -1
         || employee.category.toLowerCase().indexOf(key.toLowerCase()) !== -1
-        || employee.language.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        || employee.selectedLanguage.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
         results.push(employee);
       }
     }
@@ -48,15 +48,17 @@ export class SearchBookComponent implements OnInit {
 
 
   deleteBook(id: number){
-    this.bookService.deleteEmployee(id).subscribe( data => {
+    this.bookService.deleteBook(id).subscribe( data => {
       console.log(data);
       this.getBooks();
     })
   }
 
-  updateBook(book: Book){
+
+
+  updateBook(id: number){
     // @ts-ignore
-    this.router.navigate(['update'], book);
+    this.router.navigate(['/getAllBooks'], id);
   }
 
 }

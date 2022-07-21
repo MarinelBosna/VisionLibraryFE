@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {CommonUtil} from "./services/commonUtil";
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'visionLibraryFE';
+
+  constructor(public commonUtil: CommonUtil) {
+  }
 }
 

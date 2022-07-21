@@ -5,7 +5,12 @@ export class Book {
   publishingHouse!: string;
   collection!: string;
   available!: boolean;
-  language!: string;
+  language: any[] = [{label: "ROMANA"},
+    {label:"ENGLEZA"},
+    {label:"GERMANA"},
+    {label:"FRANCEZA"},
+    {label:"SPANIOLA"}];
+  selectedLanguage !: string;
   numberOfPages!: number;
   yearOfLaunch!: number;
   category!: string;

@@ -24,9 +24,18 @@
            [(ngModel)] = "book.collection" name = "lastName">
   </div>
     <div class="form-group">
-    <label> Available</label>
-    <input ngbButton type="radio" [value]="true" class ="form-control" id = "available"
-           [(ngModel)] = "book.available" name = "lastName">
+    <label>Available</label>
+      <div>
+      <label ngbButtonLabel class="radio-inline">
+        <input ngbButton type="radio" [value]="true" name="available" [(ngModel)] = "book.available"> true
+      </label>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+      <label ngbButtonLabel class="radio-inline">
+        <input ngbButton type="radio" [value]="false" name="available" [(ngModel)] = "book.available"> false
+      </label>
+      </div>
+            <!--<input ngbButton type="radio" [value]="true" class ="form-control" id = "available"
+                   [(ngModel)] = "book.available" name = "lastName">-->
 
 
 <!--      <label ngbButtonLabel class="radio-inline">-->
@@ -40,8 +49,11 @@
   </div>
     <div class="form-group">
     <label> Language </label>
-    <input type="text" class ="form-control" id = "language"
-           [(ngModel)] = "book.language" name = "lastName">
+     <select [(ngModel)] = "book.selectedLanguage" class="form-control" id="language" name="language">
+       <option *ngFor="let lang of book.language" [ngValue]="lang">{{lang.label}}</option>
+     </select>
+    <!--<input type="text" class ="form-control" id = "language"
+           [(ngModel)] = "book.language" name = "lastName">-->
   </div>
     <div class="form-group">
     <label> Number of pages</label>
@@ -53,11 +65,17 @@
       <input type="text" class ="form-control" id = "yearOfLaunch"
              [(ngModel)] = "book.yearOfLaunch" name = "lastName">
     </div>
-    <div class="form-group">
-      <label> Category</label>
-      <input type="text" class ="form-control" id = "category"
-             [(ngModel)] = "book.category" name = "lastName">
+<!--    <div class="form-group">-->
+<!--      <label> Category</label>-->
+<!--      <input type="text" class ="form-control" id = "category"-->
+<!--             [(ngModel)] = "book.category" name = "lastName">-->
+<!--    </div>-->
+    <div>
+      <select [(ngModel)] = "book.selectedLanguage" class="form-control" id="category" name="language">
+        <option *ngFor="let lang of book.language" [ngValue]="lang">{{lang.label}}</option>
+      </select>
     </div>
+
     <div class="form-group">
       <label> Email Id</label>
       <input type="text" class ="form-control" id = "emailId"
