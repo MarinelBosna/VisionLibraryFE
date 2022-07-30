@@ -3,40 +3,58 @@
 <!--  <input type="search" (ngModelChange)="searchBooks(key.value)" #key="ngModel" ngModel-->
 <!--         name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Books by author, title, category, language..." required>-->
 <!--</form>-->
-<table class="table">
-  <thead class="thead-dark">
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Publishing House</th>
-    <th>Collection</th>
-    <th>Available</th>
-    <th>Language</th>
-    <th>Number of pages</th>
-    <th>Year of launch</th>
-    <th>Category</th>
-    <th>Book code</th>
+<div style="width: 100%;">
+  <div class="sidenav">
+    <a href="#" *ngFor="let language of languages" (click)="languageChanged(language,$event)">
+      {{language.label}}
+    </a>
+  </div>
+  <div class="main">
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table">
+          <thead class="thead-dark">
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publishing House</th>
+            <th>Collection</th>
+            <th>Available</th>
+            <th>Language</th>
+            <th>Number of pages</th>
+            <th>Year of launch</th>
+            <th>Category</th>
+            <th>Book code</th>
 
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let templateBooks of books" >
-    <td>  {{templateBooks.title}}</td>
-    <td>  {{templateBooks.author}}</td>
-    <td>  {{templateBooks.publishingHouse}}</td>
-    <td>  {{templateBooks.collection}}</td>
-    <td>  {{templateBooks.available}}</td>
-    <td>  {{templateBooks.language}}</td>
-    <td>  {{templateBooks.numberOfPages}}</td>
-    <td>  {{templateBooks.yearOfLaunch}}</td>
-    <td>  {{templateBooks.category}}</td>
-    <td>  {{templateBooks.bookCode}}</td>
-    <td *ngIf="commonUtil.isAdminUser()">
-      <button (click) = "updateBook(templateBooks.id)" class = "btn btn-info"> Update</button>
-      <button (click) = "deleteBook(templateBooks.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-<!--      <button (click) = "bookDetails(templateBooks.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>-->
-    </td>
-    <button (click) = "bookDetails(templateBooks.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
-  </tr>
-  </tbody>
-</table>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let templateBooks of books" >
+            <td>  {{templateBooks.title}}</td>
+            <td>  {{templateBooks.author}}</td>
+            <td>  {{templateBooks.publishingHouse}}</td>
+            <td>  {{templateBooks.collection}}</td>
+            <td>  {{templateBooks.available}}</td>
+            <td>  {{templateBooks.language}}</td>
+            <td>  {{templateBooks.numberOfPages}}</td>
+            <td>  {{templateBooks.yearOfLaunch}}</td>
+            <td>  {{templateBooks.category}}</td>
+            <td>  {{templateBooks.bookCode}}</td>
+            <td *ngIf="commonUtil.isAdminUser()">
+              <button (click) = "updateBook(templateBooks.id)" class = "btn btn-info"> Update</button>
+              <button (click) = "deleteBook(templateBooks.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+              <!--      <button (click) = "bookDetails(templateBooks.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>-->
+            </td>
+            <button (click) = "bookDetails(templateBooks.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-12" style="text-align: right;padding-left: 10px">
+        <mat-paginator [length]="totalData" [pageSize]="PAGE_SIZE" [pageIndex]="currentPage" (page)="pageChanged($event)" aria-label="Please select a page">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+

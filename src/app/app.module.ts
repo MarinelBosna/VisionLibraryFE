@@ -15,6 +15,9 @@ import {BookListComponent} from "./book-list/book-list.component";
 import { ViewBookDetailsComponent } from './view-book-details/view-book-details.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { SearchByLanguageComponent } from './search-by-language/search-by-language.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     CreateBookComponent,
@@ -27,6 +30,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     ViewBookDetailsComponent,
     HomePageComponent,
     PaginationComponent,
+    SearchByLanguageComponent,
 
   ],
   imports: [
@@ -34,6 +38,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule,
 
 
   ],

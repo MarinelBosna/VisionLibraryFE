@@ -10,6 +10,7 @@ import {ViewBookDetailsComponent} from "./view-book-details/view-book-details.co
 import { ModalModule } from 'ngx-bootstrap/modal'
 import {PaginationComponent} from "./pagination/pagination.component";
 import {HomePageComponent} from "./home-page/home-page.component";
+import {SearchByLanguageComponent} from "./search-by-language/search-by-language.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginBookComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'viewBookDetails/:id', component: ViewBookDetailsComponent},
   {path: 'pagination', component: PaginationComponent},
   {path: 'home', component: HomePageComponent},
-  {path:'', component: HomePageComponent}
+  {path: 'category', component: SearchByLanguageComponent},
+  {path:'', component: BookListComponent}
 ];
 
 @NgModule({

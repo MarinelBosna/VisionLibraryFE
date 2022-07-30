@@ -57,12 +57,12 @@
   </div>
     <div class="form-group">
     <label> Number of pages</label>
-    <input type="text" class ="form-control" id = "numberOfPages"
+    <input type="number" class ="form-control" id = "numberOfPages" min="1" max="800"
            [(ngModel)] = "book.numberOfPages" name = "lastName">
   </div>
     <div class="form-group">
       <label> Year of Launch</label>
-      <input type="text" class ="form-control" id = "yearOfLaunch"
+      <input type="number" class ="form-control" id = "yearOfLaunch" min="1700" max="2022"
              [(ngModel)] = "book.yearOfLaunch" name = "lastName">
     </div>
 <!--    <div class="form-group">-->
@@ -71,8 +71,9 @@
 <!--             [(ngModel)] = "book.category" name = "lastName">-->
 <!--    </div>-->
     <div>
-      <select [(ngModel)] = "book.selectedLanguage" class="form-control" id="category" name="language">
-        <option *ngFor="let lang of book.language" [ngValue]="lang">{{lang.label}}</option>
+      <label> Category</label>
+      <select [(ngModel)] = "book.selectedCategory" class="form-control" id="category" name="language">
+        <option *ngFor="let lang of book.category" [ngValue]="lang">{{lang.label}}</option>
       </select>
     </div>
 
@@ -80,6 +81,10 @@
       <label> Email Id</label>
       <input type="text" class ="form-control" id = "emailId"
              [(ngModel)] = "book.bookCode" name = "emailId">
+    </div>
+    <div class="form-group">
+      <label> File</label>
+      <input type="file" class ="form-control" name="file" id="file" (change)="fileChangeHandler($event)">
     </div>
 
     <button class = "btn btn-success" type ="submit">Submit </button>

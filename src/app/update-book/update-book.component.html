@@ -40,23 +40,27 @@
     </div>
     <div class="form-group">
       <label> Language </label>
-      <input type="text" class ="form-control" id = "language"
-             [(ngModel)] = "book.language" name = "lastName">
+      <select [(ngModel)] = "book.selectedLanguage" class="form-control" id="language" name="language">
+        <option *ngFor="let lang of book.language" [ngValue]="lang">{{lang.label}}</option>
+      </select>
+      <!--<input type="text" class ="form-control" id = "language"
+             [(ngModel)] = "book.language" name = "lastName">-->
     </div>
     <div class="form-group">
       <label> Number of pages</label>
-      <input type="text" class ="form-control" id = "numberOfPages"
+      <input type="number" class ="form-control" id = "numberOfPages" min="1" max="800"
              [(ngModel)] = "book.numberOfPages" name = "lastName">
     </div>
     <div class="form-group">
       <label> Year of Launch</label>
-      <input type="text" class ="form-control" id = "yearOfLaunch"
+      <input type="number" class ="form-control" id = "yearOfLaunch" min="1700" max="2022"
              [(ngModel)] = "book.yearOfLaunch" name = "lastName">
     </div>
-    <div class="form-group">
+    <div>
       <label> Category</label>
-      <input type="text" class ="form-control" id = "category"
-             [(ngModel)] = "book.category" name = "lastName">
+      <select [(ngModel)] = "book.selectedCategory" class="form-control" id="category" name="language">
+        <option *ngFor="let lang of book.category" [ngValue]="lang">{{lang.label}}</option>
+      </select>
     </div>
     <div class="form-group">
       <label> Email Id</label>

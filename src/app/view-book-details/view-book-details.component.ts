@@ -12,6 +12,7 @@ export class ViewBookDetailsComponent implements OnInit {
 
   id!: number
   book!: Book
+  baseUrl: string = "http://localhost:8080/books/getFile/";
   constructor(private route: ActivatedRoute, private bookService: BookService) { }
 
   ngOnInit(): void {

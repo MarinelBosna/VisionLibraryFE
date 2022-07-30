@@ -6,7 +6,19 @@ import {Injectable} from "@angular/core";
 export class CommonUtil {
   private loginUser: any = null;
 
+  constructor() {
+    console.log("here");
+    if(localStorage.getItem("visionLibraryLogin")) {
+      let user: any = localStorage.getItem("visionLibraryLogin");
+      user  = JSON.parse(user);
+      if(user) {
+        this.loginUser = user;
+      }
+    }
+  }
+
   public setLoginUser(loginUser: any) {
+    localStorage.setItem("visionLibraryLogin",JSON.stringify(loginUser));
     this.loginUser = loginUser;
     //this.loginUser.appUserRole = "ADMIN";
   }
@@ -20,5 +32,9 @@ export class CommonUtil {
       return true;
     }
     return false;
+  }
+
+  public logout() {
+    localStorage.removeItem("visionLibraryLogin");
   }
 }

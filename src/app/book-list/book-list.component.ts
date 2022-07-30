@@ -4,6 +4,7 @@ import {BookService} from "../services/book.service";
 import { Router } from '@angular/router';
 import {HttpErrorResponse} from "@angular/common/http";
 import {CommonUtil} from "../services/commonUtil";
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-search-book',
@@ -14,6 +15,11 @@ export class BookListComponent implements OnInit {
 
   books!: Book[];
   book!: Book;
+  PAGE_SIZE: number = 5;
+  totalData: number = 0;
+  currentPage: number = 0;
+  languages: any[] = new Book().language;
+  selectedLanguage: string = "";
 
 
   constructor(private bookService: BookService,
@@ -25,11 +31,45 @@ export class BookListComponent implements OnInit {
   }
 
   getBooks() {
-    this.bookService.getBooks().subscribe(
-      data => {
-        this.books = data;
+    this.bookService.getBooks(this.currentPage,this.PAGE_SIZE).subscribe(
+      (data: any) => {
+        this.books = data.content;
+        if(!this.totalData) {
+          this.totalData = data.totalElements;
+        }
       }
     )
+  }
+
+  getBooksByLanguage() {
+    this.bookService.getBooksByLanguages(this.currentPage,this.PAGE_SIZE,this.selectedLanguage).subscribe(
+      (data: any) => {
+        this.books = data.content;
+        if(!this.totalData) {
+          this.totalData = data.totalElements;
+        }
+      }
+    )
+  }
+
+  pageChanged(event: PageEvent) {
+    const request = {};
+    console.log(event);
+    this.currentPage = event.pageIndex;
+    if(this.selectedLanguage) {
+      this.getBooksByLanguage();
+    }
+    else {
+      this.getBooks();
+    }
+  }
+
+  languageChanged(language: any,event: any) {
+    event.preventDefault();
+    this.currentPage = 0;
+    this.totalData = 0;
+    this.selectedLanguage = language.label;
+    this.getBooksByLanguage();
   }
 
   // public searchBooks(key: string): void {

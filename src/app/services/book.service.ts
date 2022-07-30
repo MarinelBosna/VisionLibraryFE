@@ -12,12 +12,12 @@ export class BookService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getBooks(): Observable<Book[]> {
-    return this.httpClient.get<Book[]>(`${this.baseUrl}/all`);
+  public getBooks(pageIndex: number,pageSize: number): Observable<any> {
+    return this.httpClient.get<Book[]>(`${this.baseUrl}/all?page=${pageIndex}&size=${pageSize}`);
   }
 
-  public addBook(book: Book): Observable<Book> {
-    return this.httpClient.post<Book>(`${this.baseUrl}/add`, book);
+  public addBook(formData: any): Observable<Book> {
+    return this.httpClient.post<Book>(`${this.baseUrl}/add`, formData);
   }
 
   getBookById(id: number): Observable<Book>{
@@ -30,6 +30,10 @@ export class BookService {
 
   deleteBook(id: number): Observable<Object>{
     return this.httpClient.delete(`${this.baseUrl}/delete/${id}`);
+  }
+
+  getBooksByLanguages(pageIndex: number,pageSize: number,language: string): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/findByLanguages?page=${pageIndex}&size=${pageSize}&language=${language}`);
   }
 
 }

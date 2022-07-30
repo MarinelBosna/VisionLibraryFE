@@ -13,7 +13,17 @@ export class Book {
   selectedLanguage !: string;
   numberOfPages!: number;
   yearOfLaunch!: number;
-  category!: string;
+  category: any[] = [{label: "LITERATURE"},
+    {label: "NONFICTION"},
+    {label: "ACTION"},
+    {label: "THRILLER"},
+    {label: "TECHNOLOGY"},
+    {label: "DRAMA"},
+    {label: "POETRY"},
+    {label: "MEDIA"},
+    {label: "OTHERS"}];
+  selectedCategory !: string;
   bookCode!: string;
   reviews!: string;
+  uploadedFileName !: string;
 }

@@ -1,12 +1,16 @@
 <h3> View Book Details</h3>
 <div>
   <div>
-    <label> <b> Title: </b></label>
+    <label> <b> Title: </b> </label> {{book.title}}
   </div>
   <div>
-    <label> <b> Author: </b></label>
+    <label> <b> Author: </b></label> {{book.author}}
   </div>
   <div>
-    <label> <b> Category: </b></label>
+    <label> <b> Category: </b></label> {{book.category}}
+  </div>
+  <div *ngIf="book.uploadedFileName">
+    <label> <b> File: </b></label>
+    <a href="{{baseUrl + book.uploadedFileName}}" target="_blank">Uploaded File</a>
   </div>
 </div>

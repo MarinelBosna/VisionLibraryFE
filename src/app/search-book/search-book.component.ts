@@ -22,11 +22,11 @@ export class SearchBookComponent implements OnInit {
   }
 
   getBooks() {
-    this.bookService.getBooks().subscribe(
+    /*this.bookService.getBooks().subscribe(
       data => {
         this.books = data;
       }
-    )
+    )*/
   }
 
   public searchBooks(key: string): void {
@@ -35,7 +35,7 @@ export class SearchBookComponent implements OnInit {
     for (const employee of this.books) {
       if (employee.title.toLowerCase().indexOf(key.toLowerCase()) !== -1
         || employee.author.toLowerCase().indexOf(key.toLowerCase()) !== -1
-        || employee.category.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || employee.selectedCategory.toLowerCase().indexOf(key.toLowerCase()) !== -1
         || employee.selectedLanguage.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
         results.push(employee);
       }
@@ -46,19 +46,5 @@ export class SearchBookComponent implements OnInit {
     }
   }
 
-
-  deleteBook(id: number){
-    this.bookService.deleteBook(id).subscribe( data => {
-      console.log(data);
-      this.getBooks();
-    })
-  }
-
-
-
-  updateBook(id: number){
-    // @ts-ignore
-    this.router.navigate(['/getAllBooks'], id);
-  }
 
 }
