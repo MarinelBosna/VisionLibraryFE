@@ -1,9 +1,9 @@
-.sidenav {
+.sidenavCategory {
   height: 100%;
   width: 200px;
   position: fixed;
   z-index: 1;
-  top: 0;
+  top: 235px;
   left: 0;
   background-color: #fff;
   overflow-x: hidden;
@@ -12,24 +12,16 @@
   border: 1px solid grey;
 }
 
-.sidenav a {
+.sidenavCategory a {
   padding: 6px 6px 6px 32px;
   text-decoration: none;
   color: grey;
   display: block;
 }
 
-.sidenav a:hover {
+.sidenavCategory a:hover {
   color: black;
   display: block;
-}
-
-.center_div{
-  margin: 0 auto;
-  width:80%; /* value of your choice which suits your alignment */
-  position: absolute;
-  top: 100px;
-  right: 50px;
 }
 
 .main {
@@ -37,8 +29,8 @@
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenavCategory {padding-top: 15px;}
+  .sidenavCategory a{font-size: 18px;}
 }
 
 

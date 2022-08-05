@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'pagination', component: PaginationComponent},
   {path: 'home', component: HomePageComponent},
   {path: 'category', component: SearchByLanguageComponent},
-  {path:'', component: BookListComponent}
+  {path:'', component: HomePageComponent}
 ];
 
 @NgModule({

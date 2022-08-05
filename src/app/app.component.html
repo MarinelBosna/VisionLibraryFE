@@ -1,5 +1,8 @@
 
 <!--<app-register-user></app-register-user>-->
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
@@ -8,12 +11,14 @@
       <a *ngIf="!commonUtil.getLoginUser()" routerLink="/register" routerLinkActive="active" class="btn btn-outline-secondary">Register</a>
       <a *ngIf="!commonUtil.getLoginUser()" routerLink="/login" routerLinkActive="active" class="btn btn-outline-secondary">Login</a>
       <a *ngIf="commonUtil.getLoginUser()" routerLink="/addBook" routerLinkActive="active" class="btn btn-outline-secondary">Add Book in System</a>
-
     </div>
     <div class="col-sm-4" style="text-align: right;padding-left: 10px">
       <button *ngIf="commonUtil.getLoginUser()" class="btn btn-outline-secondary" (click)="logout($event)">Logout</button>
     </div>
   </div>
+
+
+
 
 <!--  <div class="text-right">-->
 
@@ -28,4 +33,5 @@
 <!--      </ul>-->
 <!--  </nav>-->
   <router-outlet></router-outlet>
+
 </div>

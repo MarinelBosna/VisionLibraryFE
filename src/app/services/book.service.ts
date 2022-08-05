@@ -36,4 +36,56 @@ export class BookService {
     return this.httpClient.get(`${this.baseUrl}/findByLanguages?page=${pageIndex}&size=${pageSize}&language=${language}`);
   }
 
+  getBooksByCategories(pageIndex: number,pageSize: number,category: string): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/findByCategories?page=${pageIndex}&size=${pageSize}&category=${category}`);
+  }
+
+  sortBooksByAuthorAsc(pageIndex: number,pageSize: number): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/sortAuthorAsc?page=${pageIndex}&size=${pageSize}`);
+  }
+
+  sortBooksByAuthorDesc(pageIndex: number,pageSize: number): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/sortAuthorDesc?page=${pageIndex}&size=${pageSize}`);
+  }
+
+  sortBooksByTitleAsc(pageIndex: number,pageSize: number): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/sortTitleAsc?page=${pageIndex}&size=${pageSize}`);
+  }
+
+  sortBooksByTitleDesc(pageIndex: number,pageSize: number): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/sortTitleDesc?page=${pageIndex}&size=${pageSize}`);
+  }
+
+  sortBooksByPublishingHouseAsc(pageIndex: number,pageSize: number): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/sortPublishingHouseAsc?page=${pageIndex}&size=${pageSize}`);
+  }
+
+  sortBooksByPublishingHouseDesc(pageIndex: number,pageSize: number): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/sortPublishingHouseDesc?page=${pageIndex}&size=${pageSize}`);
+  }
+
+  sortBooksByCollectionAsc(pageIndex: number,pageSize: number): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/sortCollectionAsc?page=${pageIndex}&size=${pageSize}`);
+  }
+
+  sortBooksByCollectionDesc(pageIndex: number,pageSize: number): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/sortCollectionDesc?page=${pageIndex}&size=${pageSize}`);
+  }
+
+  sortBooksByNumberOfPagesAsc(pageIndex: number,pageSize: number): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/sortNumberOfPagesAsc?page=${pageIndex}&size=${pageSize}`);
+  }
+
+  sortBooksByNumberOfPagesDesc(pageIndex: number,pageSize: number): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/sortNumberOfPagesDesc?page=${pageIndex}&size=${pageSize}`);
+  }
+
+  sortBooksByYearOfLaunchAsc(pageIndex: number,pageSize: number): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/sortYearOfLaunchAsc?page=${pageIndex}&size=${pageSize}`);
+  }
+
+  sortBooksByYearOfLaunchDesc(pageIndex: number,pageSize: number): Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/sortYearOfLaunchDesc?page=${pageIndex}&size=${pageSize}`);
+  }
+
 }
